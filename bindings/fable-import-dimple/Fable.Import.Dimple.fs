@@ -9,8 +9,10 @@ module Dimple =
         abstract addLegend: int*int*int*int*string*Series array -> unit
         abstract addMeasureAxis: string*string -> Axis
         abstract addCategoryAxis: string*string -> Axis
+        abstract addTimeAxis: string*string*string*string -> Axis
         abstract addPctAxis: string*string -> Axis
         abstract draw: unit -> unit
+        abstract draw: (int*bool) -> unit
         abstract setMargins: int*int*int*int -> unit
         abstract setBounds: int*int*int*int -> unit
         abstract setBounds: string*string*string*string -> unit
@@ -21,6 +23,7 @@ module Dimple =
         abstract addPieSeries: string*Plot -> PieSeries
 
     and Axis =
+        abstract addOrderRule: string -> unit
         abstract colors: string array with get,set
         abstract floatingBarWidth: float with get,set
         abstract fontSize: string with get,set
@@ -29,6 +32,7 @@ module Dimple =
         abstract showGridlines: bool with get,set
         abstract ticks: int with get,set
         abstract title: string with get,set
+        abstract tickFormat: string with get,set
     and Plot = interface end
 
     and Svg = inherit Fable.Import.D3.Selection<obj>
@@ -74,4 +78,5 @@ module Dimple =
         [<Emit("new $0.color($1,$2)")>]
         abstract color: string*string -> Color
         abstract newSvg: string*int*int -> Svg
+        abstract newSvg: string*string*string-> Svg
         abstract plot: Plots with get
