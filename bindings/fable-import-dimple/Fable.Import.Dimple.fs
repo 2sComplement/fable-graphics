@@ -33,6 +33,7 @@ module Dimple =
         abstract ticks: int with get,set
         abstract title: string with get,set
         abstract tickFormat: string with get,set
+        abstract timeInterval: int with get,set
         abstract timePeriod: obj with get,set
     and Plot = interface end
 
