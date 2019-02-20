@@ -32,6 +32,8 @@ module Dimple =
         abstract fontSize: string with get,set
         abstract hidden: bool with get,set
         abstract shapes: D3.Selection<obj> with get,set
+        abstract gridlineShapes: D3.Selection<obj> with get,set
+        abstract titleShape: D3.Selection<obj> with get,set
         abstract showGridlines: bool with get,set
         abstract ticks: int with get,set
         abstract title: string with get,set
